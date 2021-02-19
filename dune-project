@@ -51,6 +51,7 @@
   (fmt (>= 0.8.9))
   (cmdliner (>= 1.1.0))
   (ansi (>= 0.6.0))
+  bos
   current_git
   current_github
   current_docker
