@@ -43,6 +43,7 @@
   (logs (>= 0.7.0))
   (fmt (>= 0.8.9))
   (cmdliner (>= 1.1.0))
+  bos
   current_git
   current_github
   current_docker
