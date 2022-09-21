@@ -8,6 +8,17 @@ let loader root path _request =
   | None -> Dream.empty `Not_Found
   | Some asset -> Dream.respond asset
 
+let parse_ref request =
+  let path = Dream.split_target request |> fst |> Dream.from_path in
+  let rec parse = function
+    | [] -> Dream.empty `Not_Found
+    | "ref" :: "tree" :: refs -> failwith "TODO"
+    | "ref" :: "pull" :: refs -> failwith "TODO"
+    | "ref" :: "merge_request" :: refs -> failwith "TODO"
+    | _ :: paths -> parse paths
+  in
+  parse path
+
 let create ~github ~gitlab =
   Dream.router
     [
