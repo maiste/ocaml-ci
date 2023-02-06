@@ -60,16 +60,6 @@ let ul_timestamps_durations ~queued_at ~finished_at ~queued_for ~ran_for =
         [ txt @@ Fmt.str "Last build %s" ran_for_msg ];
     ]
 
-let _single_line_timestamps_durations ~queued_at ~queued_for ~ran_for =
-  let queued_at = Option.fold ~none:"-" ~some:to_iso8601 queued_at in
-  div
-    [
-      txt
-      @@ Fmt.str
-           "Created at: %s | Time spent in queue: %g | Time spent running: %g"
-           queued_at queued_for ran_for;
-    ]
-
 let show_step (ts : Run_time.timestamps option) ~build_created_at =
   match (ts, build_created_at) with
   | None, _ | _, None -> div [ span [ txt @@ Fmt.str "-" ] ]
